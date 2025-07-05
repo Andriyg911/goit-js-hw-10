@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .value {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    input,
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    button[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+  <script type="module" crossorigin src="/goit-js-hw-10/assets/index-DW5aoS_T.js"></script>
+  <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/index-C1gPI-5C.css">
+</head>
+
+<body>
+  <h1>Countdown Timer</h1>
+
+  <input type="text" id="datetime-picker" />
+  <button type="button" data-start disabled>Start</button>
+
+  <div class="timer">
+    <div class="field"><span class="value" data-days>00</span><span class="label">Days</span></div>
+    <div class="field"><span class="value" data-hours>00</span><span class="label">Hours</span></div>
+    <div class="field"><span class="value" data-minutes>00</span><span class="label">Minutes</span></div>
+    <div class="field"><span class="value" data-seconds>00</span><span class="label">Seconds</span></div>
+  </div>
+
+  
+</body>
+
+</html>
