@@ -9,14 +9,7 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    base: '/goit-js-hw-10/',
     root: 'src',
-    server: {
-    fs: {
-      allow: ['..'],  // <- дозволяємо читати файли із батьківських папок
-    },
-  },
-
     build: {
       sourcemap: true,
       rollupOptions: {
