@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Генератор промісів</title>
+  <script type="module" crossorigin src="/vanilla-app-template/2-snackbar.js"></script>
+  <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/vendor-A92OCY9B.js">
+  <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/vendor-CUZofXIC.css">
+  <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/styles-Cx-nAYuk.css">
+</head>
+
+<body>
+  <h2>Генератор промісів</h2>
+  <form class="form">
+    <label>
+      Затримка (мс)
+      <input type="number" name="delay" required />
+    </label>
+
+    <fieldset>
+      <legend>Стейт</legend>
+      <label>
+        <input type="radio" name="state" value="fulfilled" required />
+        Виконано
+      </label>
+      <label>
+        <input type="radio" name="state" value="rejected" required />
+        Відхилено
+      </label>
+    </fieldset>
+
+    <button type="submit">Створити повідомлення</button>
+  </form>
+
+</body>
+
+</html>
