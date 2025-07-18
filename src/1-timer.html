@@ -4,13 +4,19 @@
 <head>
   <meta charset="UTF-8" />
   <title>Таймер зворотного відліку</title>
+  <!-- поправили назву файла стилів -->
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body>
   <h2>Таймер зворотного відліку</h2>
+
   <input type="text" id="datetime-picker" placeholder="Виберіть дату і час" />
-  <button id="start-btn" disabled>Пуск</button>
+
+  <!-- додали data-start, зберегли id для скрипта -->
+  <button type="button" id="start-btn" data-start disabled>
+    Пуск
+  </button>
 
   <div class="timer">
     <div class="field">
