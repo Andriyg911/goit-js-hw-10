@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
   <meta charset="UTF-8" />
-  <title>Генератор промісів</title>
-  <script type="module" crossorigin src="/vanilla-app-template/snackbar.js"></script>
-  <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/vendor-BZoxUzx5.js">
+  <title>Таймер зворотного відліку</title>
+  <script type="module" crossorigin src="/vanilla-app-template/assets/vendor-BZoxUzx5.js"></script>
+  <script type="module" crossorigin src="/vanilla-app-template/assets/1-timer-DIt_KTMe.js"></script>
   <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/vendor-DRAOUfWK.css">
-  <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/snackbar-B2A5I6no.css">
 </head>
-
 <body>
-  <h2>Генератор промісів</h2>
-  <form class="form">
-    <label>
-      Затримка (мс)
-      <input type="number" name="delay" required />
-    </label>
 
-    <fieldset>
-      <legend>Стейт</legend>
-      <label>
-        <input type="radio" name="state" value="fulfilled" required />
-        Виконано
-      </label>
-      <label>
-        <input type="radio" name="state" value="rejected" required />
-        Відхилено
-      </label>
-    </fieldset>
+  <h2>Таймер зворотного відліку</h2>
 
-    <button type="submit">Створити повідомлення</button>
-  </form>
+  <input type="text" id="datetime-picker" placeholder="Виберіть дату і час" />
+  <button type="button" id="start-btn" data-start disabled>Пуск</button>
 
+  <div class="timer">
+    <div class="field"><span class="value" data-days>00</span><span class="label">Дні</span></div>
+    <div class="field"><span class="value" data-hours>00</span><span class="label">Години</span></div>
+    <div class="field"><span class="value" data-minutes>00</span><span class="label">Хвилини</span></div>
+    <div class="field"><span class="value" data-seconds>00</span><span class="label">Секунди</span></div>
+  </div>
 </body>
-
 </html>
