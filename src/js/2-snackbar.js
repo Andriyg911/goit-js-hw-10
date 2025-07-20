@@ -1,4 +1,4 @@
-
+import '../css/style.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -6,22 +6,20 @@ const form = document.querySelector('.form');
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const delayInput = event.target.elements.delay;
-  const stateInput = event.target.elements.state;
-  const ms = Number(delayInput.value);
-  const chosenState = stateInput.value;
+  const delayMs = Number(event.target.delay.value);
+  const state   = event.target.state.value;
 
-  createPromise(ms, chosenState)
-    .then(value => {
+  createPromise(delayMs, state)
+    .then(ms => {
       iziToast.success({
-        title: '✅ Успіх',
-        message: `Виконано обіцянку за ${value} мс`
+        title: '✅ Fulfilled',
+        message: `Fulfilled promise in ${ms} ms`
       });
     })
-    .catch(error => {
+    .catch(ms => {
       iziToast.error({
-        title: '❌ Помилка',
-        message: `Відхилено обіцянку через ${error} мс`
+        title: '❌ Rejected',
+        message: `Rejected promise in ${ms} ms`
       });
     });
 

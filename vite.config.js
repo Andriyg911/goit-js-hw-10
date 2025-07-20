@@ -5,51 +5,39 @@ import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
+  const isDev = command === 'serve';
+
   return {
     define: {
-      [command === 'serve' ? 'global' : '_global']: {},
+      [isDev ? 'global' : '_global']: {},
     },
-    base: '/goit-js-hw-10/',
     root: 'src',
-    server: {
-    fs: {
-      allow: ['..'],  // <- дозволяємо читати файли із батьківських папок
-    },
-  },
-
+    base: isDev ? '' : '/goit-js-hw-10/',
     build: {
       sourcemap: true,
+      outDir: '../dist',
+      emptyOutDir: true,
       rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
+            if (id.includes('node_modules')) return 'vendor';
           },
-          entryFileNames: chunkInfo => {
-            if (chunkInfo.name === 'commonHelpers') {
-              return 'commonHelpers.js';
-            }
+          entryFileNames(chunkInfo) {
+            if (chunkInfo.name === 'commonHelpers') return 'commonHelpers.js';
             return '[name].js';
           },
-          assetFileNames: assetInfo => {
-            if (assetInfo.name && assetInfo.name.endsWith('.html')) {
-              return '[name].[ext]';
-            }
+          assetFileNames(assetInfo) {
+            if (assetInfo.name?.endsWith('.html')) return '[name].[ext]';
             return 'assets/[name]-[hash][extname]';
           },
         },
       },
-      outDir: '../dist',
-      emptyOutDir: true,
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
-      SortCss({
-        sort: 'mobile-first',
-      }),
+      FullReload(['./src/**/*.html']),
+      SortCss({ sort: 'mobile-first' }),
     ],
   };
 });
